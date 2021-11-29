@@ -1,0 +1,19 @@
+[
+  {
+    "name": "Vasya",
+    "password": "password",
+    "amITeacher": true
+  },
+  {
+    "name": "Pupkin",
+    "password": "password",
+    "amITeacher": false,
+    "group": "PA-18-1"
+  },
+  {
+    "name": "aa",
+    "password": "bb",
+    "amITeacher": false,
+    "group": "cc"
+  }
+]

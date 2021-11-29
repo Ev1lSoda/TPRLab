@@ -1,0 +1,21 @@
+.mainContainer {
+  height: 95vh;
+  width: 95vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+.myInput {
+  width: 50%;
+  font-size: 16px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#amITeacherDiv {
+  padding: 10px;
+}
