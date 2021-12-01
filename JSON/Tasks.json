@@ -1,0 +1,32 @@
+[
+    {
+        "title": "Тест № 1",
+        "task": "...",
+        "taskType": 0,
+        "questions": [
+            {
+                "question": "question",
+                "answer": "answer"
+            },
+            {
+                "question": "question",
+                "answer": "answer"
+            }
+        ]
+    },
+    {
+        "title": "Тест № 2",
+        "task": "...",
+        "taskType": 0,
+        "questions": [
+            {
+                "question": "question",
+                "answer": "answer"
+            },
+            {
+                "question": "question",
+                "answer": "answer"
+            }
+        ]
+    }
+]

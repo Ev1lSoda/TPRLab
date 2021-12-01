@@ -8,12 +8,12 @@
     "name": "Pupkin",
     "password": "password",
     "amITeacher": false,
-    "group": "PA-18-1"
-  },
-  {
-    "name": "aa",
-    "password": "bb",
-    "amITeacher": false,
-    "group": "cc"
+    "group": "PA-18-1",
+    "tasks": {
+      "0": {
+        "attamps": 3,
+        "score": 0
+      }
+    }
   }
 ]

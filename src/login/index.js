@@ -3,15 +3,18 @@ const path = require('path');
 const { ipcRenderer } = require('electron');
 
 const login = () => {
-  let name = document.getElementById('username').value;
-  let password = document.getElementById('password').value;
+  const name = document.getElementById('username').value;
+  const password = document.getElementById('password').value;
   console.log('name: ', name);
   console.log('password: ', password);
   const filePath = path.join(process.cwd(), 'JSON', 'Users.json');
   const text = JSON.parse(fs.readFileSync(filePath, { encoding: 'utf-8' }));
-  const userIndex = text.some((e, i) => {(e.name === name && e.password === password) ? i : null});
-  if (userIndex){
-    ipcRenderer.send('successful login', userIndex);
+  console.log('text: ', text);
+  for (let i = 0; i < text.length; i++){
+    if (text[i].name === name && text[i].password === password){
+      ipcRenderer.send('successful login', i);
+      break;
+    }
   }
 }
 

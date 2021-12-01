@@ -32,3 +32,7 @@
   height: 100%;
   width: 70%;
 }
+
+table {
+  width: fit-content;
+}
