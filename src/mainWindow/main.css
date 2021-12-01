@@ -1,5 +1,6 @@
 .container {
   display: flex;
+  gap: 10px;
   flex-direction: column;
   align-content: center;
   justify-content: center;
@@ -7,21 +8,30 @@
   width: 95vw;
 }
 
+.container button {
+  background-color: white;
+  border: 1px black solid;
+}
+
 .navbar {
   display: flex;
+  gap: 10px;
   height: 10%;
   width: 100%;
 }
 
 .mainContent {
   display: flex;
+  gap: 10px;
   height: 90%;
   width: 100%;
 }
 
 #chooseTheme {
   display: flex;
+  gap: 10px;
   flex-direction: column;
+  align-items: flex-start;
   height: 100%;
   width: 30%;
 }
