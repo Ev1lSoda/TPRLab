@@ -14,21 +14,25 @@ function createWindow() {
     },
   });
 
+  mainWindow.setResizable(false);
+  mainWindow.setMenu(null);
   mainWindow.loadFile('src/mainWindow/index.html');
   mainWindow.webContents.openDevTools();
 
   let login = new BrowserWindow({
     show: true,
     parent: mainWindow,
-    modal: true,
+    // modal: true,
     useContentSize: true,
-    width: 400,
-    height: 500,
+    width: 350,
+    height: 450,
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
     },
   });
+  login.setResizable(false);
+  login.setMenu(null);
   login.loadFile('src/login/index.html');
   // login.webContents.openDevTools();
   login.on('close', (e) => {

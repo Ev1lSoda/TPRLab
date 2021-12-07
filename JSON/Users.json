@@ -2,18 +2,88 @@
   {
     "name": "Vasya",
     "password": "password",
-    "amITeacher": true
+    "amITeacher": true,
+    "tasks": [
+      {
+        "attempts": 3,
+        "score": 0
+      },
+      {
+        "attempts": 3,
+        "score": 0
+      },
+      {
+        "attempts": 3,
+        "score": 0
+      },
+      {
+        "attempts": 3,
+        "score": 0
+      },
+      {
+        "attempts": 3,
+        "score": 0
+      },
+      {
+        "attempts": 0,
+        "score": 0
+      },
+      {
+        "attempts": 3,
+        "score": 0
+      },
+      {
+        "attempts": 3,
+        "score": 0
+      },
+      {
+        "attempts": 3,
+        "score": 0
+      }
+    ]
   },
   {
     "name": "Pupkin",
     "password": "password",
     "amITeacher": false,
     "group": "PA-18-1",
-    "tasks": {
-      "0": {
-        "attamps": 3,
+    "tasks": [
+      {
+        "attempts": 3,
+        "score": 0
+      },
+      {
+        "attempts": 3,
+        "score": 0
+      },
+      {
+        "attempts": 3,
+        "score": 0
+      },
+      {
+        "attempts": 3,
+        "score": 0
+      },
+      {
+        "attempts": 3,
+        "score": 0
+      },
+      {
+        "attempts": 0,
+        "score": 0
+      },
+      {
+        "attempts": 3,
+        "score": 0
+      },
+      {
+        "attempts": 3,
+        "score": 0
+      },
+      {
+        "attempts": 3,
         "score": 0
       }
-    }
+    ]
   }
 ]

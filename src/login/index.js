@@ -2,6 +2,49 @@ const fs = require('fs');
 const path = require('path');
 const { ipcRenderer } = require('electron');
 
+const tasks = [
+  {
+    attempts: 3,
+    score: 0
+  },
+  {
+    attempts: 3,
+    score: 0
+  },
+  {
+    attempts: 3,
+    score: 0
+  },
+  {
+    attempts: 3,
+    score: 0
+  },
+  {
+    attempts: 3,
+    score: 0
+  },
+  {
+    attempts: 0,
+    score: 0
+  },
+  {
+    attempts: 3,
+    score: 0
+  },
+  {
+    attempts: 3,
+    score: 0
+  },
+  {
+    attempts: 3,
+    score: 0
+  }
+];
+
+const setUserCreated = (info) => {
+  document.getElementById('userCreated').innerText = info;
+}
+
 const login = () => {
   const name = document.getElementById('username').value;
   const password = document.getElementById('password').value;
@@ -28,54 +71,68 @@ const signUp = () => {
   const filePath = path.join(process.cwd(), 'JSON', 'Users.json');
   const text = JSON.parse(fs.readFileSync(filePath, { encoding: 'utf-8' }));
   console.log('text: ', text);
-  if(!amITeacher){
-    let group = document.getElementById('group').value;
-    console.log('group: ', group);
-    text.push(
-      {
-          name,
-          password,
-          amITeacher,
-          group
-      });
-  } else {
-    text.push(
-      {
-          name,
-          password,
-          amITeacher
-      });
+  let isUserCreated = false;
+  for (let i = 0; i < text.length; i++){
+    if (text[i].name === name){
+      isUserCreated = true;
+      break;
+    }
   }
-  fs.writeFile(filePath, JSON.stringify(text, null, 2), function (err) {
-    if (err) throw err;
-    console.log('User added!');
-  });
-  back();
+  if(isUserCreated){
+    setUserCreated('Пользователь с таким именем существует!');
+  } else{
+    if(!amITeacher){
+      let group = document.getElementById('group').value;
+      console.log('group: ', group);
+      text.push(
+        {
+            name,
+            password,
+            amITeacher,
+            group,
+            tasks
+        });
+    } else {
+      text.push(
+        {
+            name,
+            password,
+            amITeacher,
+            tasks
+        });
+    }
+    fs.writeFile(filePath, JSON.stringify(text, null, 2), function (err) {
+      if (err) throw err;
+      console.log('User added!');
+    });
+    back();
+  }
 }
 
 const checkBoxTeacher = () => {
   let amITeacher = document.getElementById('amITeacher').checked;
   if(!amITeacher) {
-    document.getElementById('groupDiv').innerHTML = `<input id="group" type="text" class="myInput" placeholder="Группа" title="Группа" />`
+    document.getElementById('groupDiv').style.display = 'block';
   } else {
-    document.getElementById('groupDiv').innerHTML = ``
+    document.getElementById('groupDiv').style.display = 'none';
   }
 }
 
 const registration = () => {
   document.getElementsByClassName('mainContainer')[0].innerHTML = `
-  <h1>Sign Up</h1>
-  <input id="username" type="text" class="myInput" placeholder="Ім'я" title="Ім'я" />
+  <h1>Регистрация</h1>
+  <input id="username" type="text" class="myInput" placeholder="Имя" title="Имя" />
   <input id="password" type="text" class="myInput" placeholder="Пароль" title="Пароль" />
+  <input style="display: none" id="groupDiv" id="password" type="text" class="myInput" placeholder="Група" title="Група"></input>
   <div id="amITeacherDiv">
     <input type="checkbox" id="amITeacher" name="amITeacher" checked >
-    <label for="amITeacher">Я вчитель</label>
+    <label for="amITeacher">Я учитель</label>
   </div>
-  <div id="groupDiv"></div>
-  <div>
-    <button id="backButton">Back</button>
-    <button id="signUpButton">Sign Up</button>
+  <div class="btn-container">
+    <button class="btn" id="backButton">Вход</button>
+    <button class="btn" id="signUpButton">Зарегистрироваться</button>
   </div>
+  <div id="userCreated"></div>
   `
   
 document.getElementById('backButton').addEventListener('click', back);
@@ -85,12 +142,12 @@ document.getElementById('amITeacher').addEventListener('change', checkBoxTeacher
 
 const back = () => {
   document.getElementsByClassName('mainContainer')[0].innerHTML = `
-  <h1>Sign In</h1>
-  <input id="username" type="text" class="myInput" placeholder="Ім'я" title="Type in name" />
-  <input id="password" type="text" class="myInput" placeholder="Пароль" title="Type in password" />
-  <div>
-    <button id="loginButton">Login</button>
-    <button id="registrationButton">Registration</button>
+  <h1>Вход</h1>
+  <input id="username" type="text" class="myInput" placeholder="Имя" title="Имя" />
+  <input id="password" type="text" class="myInput" placeholder="Пароль" title="Пароль" />
+  <div class="btn-container">
+    <button class="btn" id="loginButton">Войти</button>
+    <button class="btn" id="registrationButton">Регистрация</button>
   </div>
   `
 

@@ -6,16 +6,42 @@
   justify-content: center;
   align-content: center;
   align-items: center;
+  color: rgb(50, 54, 184);
 }
 
 .myInput {
-  width: 50%;
+  width: 53%;
   font-size: 16px;
   padding: 10px;
-  border: 1px solid #ddd;
+  border: 1px solid rgb(7, 84, 166);
+  color: rgb(50, 54, 184);
   margin-bottom: 12px;
 }
 
 #amITeacherDiv {
   padding: 10px;
+}
+
+#userCreated {
+  color: red;
+}
+
+.btn-container {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.btn {
+  height: 50px;
+  width: 100px;
+  color: rgb(50, 54, 184);
+  border: 2px solid rgb(162, 209, 252);
+  background-color: white;
+  overflow-wrap: break-word;
+}
+
+.mainContainer h1 {
+  color: rgb(50, 54, 184);
 }
