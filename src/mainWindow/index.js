@@ -60,8 +60,74 @@ const startTask = () => {
       <input class="input-answer" />
       `;
     }
+    document.getElementById(`taskBody${taskIndex}`).innerHTML = taskBody;
+  } else if(tasksText[taskIndex].taskType === 2) {
+    myDocument.getElementById(`checkbtn${taskIndex}div`).style.display = 'none';
+    taskBody += `
+    <p>Колчество состояний природы 2.</p>
+    <p>Введите количество виборов: </p>
+    <input class="input-answer" />
+    <div style='margin-top:30px;width:100%' class="btn__container"><button class="task__btn" id="getKV">Подтвердить</button></div>
+    `;
+    myDocument.getElementById(`taskBody${taskIndex}`).innerHTML = taskBody;
+    myDocument.getElementById(`getKV`).addEventListener('click', () => {
+    const KV = document.getElementsByClassName('input-answer')[0].value;
+      if (KV > 0){
+          taskBody = '<p>Введите Матрицу позености: </p>';
+          for(let i = 0; i < KV; i++){
+            taskBody += '<p> ';
+            for(let f = 0; f < 2; f++){
+              taskBody += `
+              <input class="input-answer" />
+              `;
+            }
+            taskBody += ' </p>';
+          }
+          taskBody += `<div style='margin-top:30px;width:100%' class="btn__container"><button class="task__btn" id="getMP">Подтвердить</button></div>`;
+          myDocument.getElementById(`taskBody${taskIndex}`).innerHTML = taskBody;
+          myDocument.getElementById(`getMP`).addEventListener('click', () => {
+            const MP = document.getElementsByClassName('input-answer');
+            let biggestValue = 0;
+            let myMatrix = [];
+            for (let i = 0; i < MP.length; i++){
+              // console.log(i, 'MP_value: ', MP[i].value);
+              if(isNaN(Number(MP[i].value))) badEnd();
+              if(MP[i].value > biggestValue) biggestValue = MP[i].value;
+            }
+            for (let i = 0; i < MP.length; i++){
+              myMatrix[i] = MP[i].value - biggestValue;
+            }
+            taskBody = '<p>Введите Матрицу потерь: </p>';
+            for(let i = 0; i < KV; i++){
+              taskBody += '<p> ';
+              for(let f = 0; f < 2; f++){
+                taskBody += `
+                <input class="input-answer" />
+                `;
+              }
+              taskBody += ' </p>';
+            }
+            taskBody += `<div style='margin-top:30px;width:100%' class="btn__container"><button class="task__btn" id="getMP2">Подтвердить</button></div>`;
+            myDocument.getElementById(`taskBody${taskIndex}`).innerHTML = taskBody;
+            myDocument.getElementById(`getMP2`).addEventListener('click', () => {
+              const MP2 = document.getElementsByClassName('input-answer');
+              for (let i = 0; i < MP2.length; i++){
+              console.log('MP[i].value: ', MP2[i].value);
+              console.log('myMatrix[i]: ', myMatrix[i]);
+              console.log('typeof(MP[i].value): ', typeof(MP[i].value));
+
+                if(isNaN(Number(MP2[i].value)) || MP2[i].value != myMatrix[i]) {
+                  badEnd();
+                  return null;
+                }
+              }
+              goodEnd();
+            });
+          });
+      } else badEnd();
+    });
   }
-  document.getElementById(`taskBody${taskIndex}`).innerHTML = taskBody;
+  // myDocument.getElementById(`taskBody${taskIndex}`).innerHTML = taskBody;
 }
 
 const createThemes = () => {
