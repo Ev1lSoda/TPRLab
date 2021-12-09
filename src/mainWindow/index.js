@@ -8,16 +8,19 @@ const themeText = JSON.parse(fs.readFileSync(filePathTheme, { encoding: 'utf-8' 
 const filePathTasks = path.join(process.cwd(), 'JSON', 'Tasks.json');
 const tasksText = JSON.parse(fs.readFileSync(filePathTasks, { encoding: 'utf-8' }));
 
-const filePathUser = path.join(process.cwd(), 'JSON', 'Users.json');
-const users = JSON.parse(fs.readFileSync(filePathUser, { encoding: 'utf-8' }));
+const filePathUsers = path.join(process.cwd(), 'JSON', 'Users.json');
+const users = JSON.parse(fs.readFileSync(filePathUsers, { encoding: 'utf-8' }));
 
 let userIndex = null;
 let taskIndex = 0;
 
 const badEnd = () => {
-  users[userIndex].tasks[taskIndex].attempts--;
+  users[userIndex].tasks[taskIndex].attempts -= 1;
   document.getElementById(`checkbtn${taskIndex}div`).style.display = 'none';
   document.getElementById(`taskBody${taskIndex}`).innerHTML = tasksText[taskIndex].answers.wrong;
+  fs.writeFile(filePathUsers, JSON.stringify(users, null, 2), function (err) {
+    if (err) throw err;
+  });
 }
 
 const goodEnd = () => {
@@ -25,6 +28,9 @@ const goodEnd = () => {
   users[userIndex].tasks[taskIndex].score = 1;
   document.getElementById(`checkbtn${taskIndex}div`).style.display = 'none';
   document.getElementById(`taskBody${taskIndex}`).innerHTML = tasksText[taskIndex].answers.right;
+  fs.writeFile(filePathUsers, JSON.stringify(users, null, 2), function (err) {
+    if (err) throw err;
+  });
 }
 
 const checkAnswersOne = () => {

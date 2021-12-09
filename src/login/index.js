@@ -4,39 +4,39 @@ const { ipcRenderer } = require('electron');
 
 const tasks = [
   {
-    attempts: 3,
+    attempts: 1,
     score: 0
   },
   {
-    attempts: 3,
+    attempts: 1,
     score: 0
   },
   {
-    attempts: 3,
+    attempts: 1,
     score: 0
   },
   {
-    attempts: 3,
+    attempts: 1,
     score: 0
   },
   {
-    attempts: 3,
+    attempts: 2,
     score: 0
   },
   {
-    attempts: 0,
+    attempts: 1,
     score: 0
   },
   {
-    attempts: 3,
+    attempts: 2,
     score: 0
   },
   {
-    attempts: 3,
+    attempts: 2,
     score: 0
   },
   {
-    attempts: 3,
+    attempts: 2,
     score: 0
   }
 ];

@@ -52,6 +52,15 @@
   text-align: center;
 }
 
+#showTheme p, ol {
+  font-size: 18px;
+}
+
+#showTheme table {
+  font-size: 24px;
+  font-weight: bold;
+}
+
 table {
   width: fit-content;
 }
@@ -92,4 +101,9 @@ table {
   border: none;
   font-size: larger;
   font-weight: bold;
+}
+
+.container_table-img {
+  display: flex;
+  gap: 250px;
 }
