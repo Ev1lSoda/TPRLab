@@ -54,6 +54,7 @@ const startTask = () => {
   let taskBody = ``;
   if(tasksText[taskIndex].taskType === 1) {
     myDocument.getElementById(`checkbtn${taskIndex}`).addEventListener('click', checkAnswersOne);
+    console.log('tasksText[taskIndex].questions: ', tasksText[taskIndex].questions);
     for (let i = 0; i < tasksText[taskIndex].questions.length; i++){
       taskBody += `
       <p>${tasksText[taskIndex].questions[i].question}</p>
@@ -95,7 +96,7 @@ const startTask = () => {
               if(MP[i].value > biggestValue) biggestValue = MP[i].value;
             }
             for (let i = 0; i < MP.length; i++){
-              myMatrix[i] = MP[i].value - biggestValue;
+              myMatrix[i] = biggestValue - MP[i].value;
             }
             taskBody = '<p>Введите Матрицу потерь: </p>';
             for(let i = 0; i < KV; i++){
