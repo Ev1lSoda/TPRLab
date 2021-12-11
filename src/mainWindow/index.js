@@ -14,6 +14,18 @@ const users = JSON.parse(fs.readFileSync(filePathUsers, { encoding: 'utf-8' }));
 let userIndex = null;
 let taskIndex = 0;
 
+const showStats = () => {
+  document.getElementById('stats-container').style.display = 'flex';
+  console.log('showStats-taskIndex: ', taskIndex);
+  console.log(users[userIndex].tasks[taskIndex]);
+  let totalScore = 0;
+  for (let i = 0; i < users[userIndex].tasks.length; i++){
+    totalScore += users[userIndex].tasks[i].score;
+  }
+  document.getElementById('stats_attempts').innerText = `Количество попыткок: ${users[userIndex].tasks[taskIndex].attempts}`;
+  document.getElementById('stats_score').innerText = `Ваш бал: ${totalScore}\/9`;
+}
+
 const badEnd = () => {
   users[userIndex].tasks[taskIndex].attempts -= 1;
   document.getElementById(`checkbtn${taskIndex}div`).style.display = 'none';
@@ -21,6 +33,7 @@ const badEnd = () => {
   fs.writeFile(filePathUsers, JSON.stringify(users, null, 2), function (err) {
     if (err) throw err;
   });
+  showStats();
 }
 
 const goodEnd = () => {
@@ -31,6 +44,7 @@ const goodEnd = () => {
   fs.writeFile(filePathUsers, JSON.stringify(users, null, 2), function (err) {
     if (err) throw err;
   });
+  showStats();
 }
 
 const checkAnswersOne = () => {
@@ -132,6 +146,7 @@ const startTask = () => {
 }
 
 const createThemes = () => {
+  document.getElementById('stats-container').style.display = 'none';
   document.getElementById('chooseTheme').innerHTML = '';
   themeText.forEach(({name}) => {
     document.getElementById('chooseTheme').innerHTML += `<button class="choose-btn" id="${name}">${name}</button>`;
@@ -142,13 +157,13 @@ const createThemes = () => {
       document.getElementById('showTheme').innerHTML = `
       <h1>${themeText[index].name}</h1>
       <p>${themeText[index].data}</p>
-      `
+      `;
     })
   });
   document.getElementById('showTheme').innerHTML = `
   <h1>${themeText[0].name}</h1>
   <p>${themeText[0].data}</p>
-  `
+  `;
 }
 
 const createTasks = () => {
@@ -160,8 +175,11 @@ const createTasks = () => {
   tasksText.forEach(({title}, index) => {
     document.getElementById(title).addEventListener('click', () => {
     taskIndex = index;
-      if (users[userIndex].tasks[index].attempts === 0){
-        document.getElementById('showTheme').innerHTML = '<h1>У вас закончились попытки.</h1>'
+    console.log('taskIndex: ', taskIndex);
+    console.log('users[userIndex].tasks[taskIndex]: ', users[userIndex].tasks[taskIndex]);
+      if (users[userIndex].tasks[taskIndex].attempts === 0){
+        document.getElementById('showTheme').innerHTML = '<h1>У вас закончились попытки.</h1>';
+        showStats();
       } else {
       document.getElementById('showTheme').innerHTML = `
       <h1>${tasksText[index].title}</h1>
@@ -171,11 +189,13 @@ const createTasks = () => {
       <div style="display: none" class="btn__container" id="checkbtn${index}div"><button class="task__btn" id="checkbtn${index}">Проверить решение</button></div>
       `
       myDocument.getElementById(`taskbtn${index}`).addEventListener('click', startTask);
+      showStats();
       }
     })
   });
   if (users[userIndex].tasks[0].attempts === 0){
-    document.getElementById('showTheme').innerHTML = '<h1>У вас закончились попытки.</h1>'
+    document.getElementById('showTheme').innerHTML = '<h1>У вас закончились попытки.</h1>';
+    showStats();
   } else {
   document.getElementById('showTheme').innerHTML = `
   <h1>${tasksText[0].title}</h1>
@@ -186,6 +206,7 @@ const createTasks = () => {
   `
   taskIndex = 0;
   myDocument.getElementById(`taskbtn${0}`).addEventListener('click', startTask);
+  showStats();
   }
 }
 
