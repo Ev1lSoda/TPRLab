@@ -107,3 +107,14 @@ table {
   display: flex;
   gap: 250px;
 }
+
+#stats-container {
+  display: none;
+  position: absolute;
+  margin: 10px 10px 0 0;
+  top: 0;
+  right: 0;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: flex-start;
+}
