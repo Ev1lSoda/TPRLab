@@ -3,13 +3,13 @@ const path = require('path');
 const { ipcRenderer } = require('electron');
 
 const filePathTheme = path.join(process.cwd(), 'JSON', 'Info.json');
-const themeText = JSON.parse(fs.readFileSync(filePathTheme, { encoding: 'utf-8' }));
+let themeText = JSON.parse(fs.readFileSync(filePathTheme, { encoding: 'utf-8' }));
 
 const filePathTasks = path.join(process.cwd(), 'JSON', 'Tasks.json');
-const tasksText = JSON.parse(fs.readFileSync(filePathTasks, { encoding: 'utf-8' }));
+let tasksText = JSON.parse(fs.readFileSync(filePathTasks, { encoding: 'utf-8' }));
 
 const filePathUsers = path.join(process.cwd(), 'JSON', 'Users.json');
-const users = JSON.parse(fs.readFileSync(filePathUsers, { encoding: 'utf-8' }));
+let users = JSON.parse(fs.readFileSync(filePathUsers, { encoding: 'utf-8' }));
 
 let userIndex = null;
 let taskIndex = 0;
@@ -66,7 +66,22 @@ const startTask = () => {
   document.getElementById(`checkbtn${taskIndex}div`).style.display = 'block';
   // document.getElementById(`taskBody${taskIndex}`).innerText = JSON.stringify(tasksText[taskIndex], null, 2);
   let taskBody = ``;
-  if(tasksText[taskIndex].taskType === 1) {
+  if (tasksText[taskIndex].title === 'Тест № 6') {
+    taskBody += `
+      <p>${tasksText[taskIndex].questions[0].question}</p>
+      <input type="checkbox" id="input-answer" name="answer" />
+      <label for="answer">Да</label>
+      `;
+    document.getElementById(`taskBody${taskIndex}`).innerHTML = taskBody;
+    myDocument.getElementById(`checkbtn${taskIndex}`).addEventListener('click', () => {
+      if(myDocument.getElementById('input-answer').checked){
+        goodEnd();
+      } else {
+        badEnd;
+      }
+    });
+  }
+  else if(tasksText[taskIndex].taskType === 1) {
     myDocument.getElementById(`checkbtn${taskIndex}`).addEventListener('click', checkAnswersOne);
     console.log('tasksText[taskIndex].questions: ', tasksText[taskIndex].questions);
     for (let i = 0; i < tasksText[taskIndex].questions.length; i++){
@@ -193,6 +208,9 @@ const createTasks = () => {
       }
     })
   });
+  console.log('users: ', users);
+  console.log('users[userIndex]: ', users[userIndex]);
+  console.log('users[userIndex].tasks: ', users[userIndex].tasks);
   if (users[userIndex].tasks[0].attempts === 0){
     document.getElementById('showTheme').innerHTML = '<h1>У вас закончились попытки.</h1>';
     showStats();
@@ -214,6 +232,8 @@ document.getElementById('theory-btn').addEventListener('click', createThemes);
 document.getElementById('task-btn').addEventListener('click', createTasks);
 
 ipcRenderer.on('successful login', (e, userNumber) => {
+  users = JSON.parse(fs.readFileSync(filePathUsers, { encoding: 'utf-8' }));
+  
   userIndex = userNumber;
   console.log('index: ', userIndex);
   createThemes();

@@ -112,9 +112,9 @@ const signUp = () => {
 const checkBoxTeacher = () => {
   let amITeacher = document.getElementById('amITeacher').checked;
   if(!amITeacher) {
-    document.getElementById('groupDiv').style.display = 'block';
+    document.getElementById('group').style.display = 'block';
   } else {
-    document.getElementById('groupDiv').style.display = 'none';
+    document.getElementById('group').style.display = 'none';
   }
 }
 
@@ -123,7 +123,7 @@ const registration = () => {
   <h1>Регистрация</h1>
   <input id="username" type="text" class="myInput" placeholder="Имя" title="Имя" />
   <input id="password" type="text" class="myInput" placeholder="Пароль" title="Пароль" />
-  <input style="display: none" id="groupDiv" id="password" type="text" class="myInput" placeholder="Група" title="Група"></input>
+  <input style="display: none" id="group" id="password" type="text" class="myInput" placeholder="Група" title="Група"></input>
   <div id="amITeacherDiv">
     <input type="checkbox" id="amITeacher" name="amITeacher" checked >
     <label for="amITeacher">Я учитель</label>
