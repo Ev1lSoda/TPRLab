@@ -5,27 +5,27 @@
     "amITeacher": true,
     "tasks": [
       {
-        "attempts": 1,
+        "attempts": 0,
+        "score": 1
+      },
+      {
+        "attempts": 0,
         "score": 0
       },
       {
-        "attempts": 1,
-        "score": 0
+        "attempts": 0,
+        "score": 1
       },
       {
-        "attempts": 1,
-        "score": 0
-      },
-      {
-        "attempts": 1,
-        "score": 0
+        "attempts": 0,
+        "score": 1
       },
       {
         "attempts": 2,
         "score": 0
       },
       {
-        "attempts": 1,
+        "attempts": 0,
         "score": 1
       },
       {
@@ -37,8 +37,8 @@
         "score": 1
       },
       {
-        "attempts": 2,
-        "score": 0
+        "attempts": 1,
+        "score": 1
       }
     ]
   },
@@ -57,7 +57,7 @@
         "score": 1
       },
       {
-        "attempts": 99,
+        "attempts": 98,
         "score": 1
       },
       {
@@ -83,6 +83,92 @@
       {
         "attempts": 196,
         "score": 1
+      }
+    ]
+  },
+  {
+    "name": "Turchina Valentina",
+    "password": "psevdo257",
+    "amITeacher": true,
+    "tasks": [
+      {
+        "attempts": 1,
+        "score": 0
+      },
+      {
+        "attempts": 1,
+        "score": 0
+      },
+      {
+        "attempts": 1,
+        "score": 0
+      },
+      {
+        "attempts": 1,
+        "score": 0
+      },
+      {
+        "attempts": 2,
+        "score": 0
+      },
+      {
+        "attempts": 1,
+        "score": 0
+      },
+      {
+        "attempts": 2,
+        "score": 0
+      },
+      {
+        "attempts": 2,
+        "score": 0
+      },
+      {
+        "attempts": 2,
+        "score": 0
+      }
+    ]
+  },
+  {
+    "name": "VAT",
+    "password": "pass",
+    "amITeacher": true,
+    "tasks": [
+      {
+        "attempts": 1,
+        "score": 0
+      },
+      {
+        "attempts": 1,
+        "score": 0
+      },
+      {
+        "attempts": 1,
+        "score": 0
+      },
+      {
+        "attempts": 1,
+        "score": 0
+      },
+      {
+        "attempts": 2,
+        "score": 0
+      },
+      {
+        "attempts": 1,
+        "score": 0
+      },
+      {
+        "attempts": 2,
+        "score": 0
+      },
+      {
+        "attempts": 2,
+        "score": 0
+      },
+      {
+        "attempts": 2,
+        "score": 0
       }
     ]
   }

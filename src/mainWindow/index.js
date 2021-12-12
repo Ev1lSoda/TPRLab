@@ -88,7 +88,7 @@ const startTask = () => {
     myDocument.getElementById(`getKV`).addEventListener('click', () => {
     const KV = document.getElementsByClassName('input-answer')[0].value;
       if (KV > 0){
-          taskBody = '<p>Введите Матрицу позености: </p>';
+          taskBody = '<p>Введите Матрицу полезности: </p>';
           for(let i = 0; i < KV; i++){
             taskBody += '<p> ';
             for(let f = 0; f < 2; f++){
