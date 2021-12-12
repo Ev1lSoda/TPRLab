@@ -85,5 +85,49 @@
         "score": 1
       }
     ]
+  },
+  {
+    "name": "Pavel",
+    "password": "Pass",
+    "amITeacher": false,
+    "group": "PA 18 1",
+    "tasks": [
+      {
+        "attempts": 1,
+        "score": 0
+      },
+      {
+        "attempts": 1,
+        "score": 0
+      },
+      {
+        "attempts": 1,
+        "score": 0
+      },
+      {
+        "attempts": 1,
+        "score": 0
+      },
+      {
+        "attempts": 2,
+        "score": 0
+      },
+      {
+        "attempts": 1,
+        "score": 0
+      },
+      {
+        "attempts": 2,
+        "score": 0
+      },
+      {
+        "attempts": 2,
+        "score": 0
+      },
+      {
+        "attempts": 2,
+        "score": 0
+      }
+    ]
   }
 ]
