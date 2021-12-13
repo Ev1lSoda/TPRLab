@@ -23,7 +23,7 @@ const showStats = () => {
     totalScore += users[userIndex].tasks[i].score === 1 ? 1 : 0;
   }
   document.getElementById('stats_attempts').innerText = `Количество попыткок: ${users[userIndex].tasks[taskIndex].attempts}`;
-  document.getElementById('stats_score').innerText = `Ваш бал: ${totalScore}\/9`;
+  document.getElementById('stats_score').innerText = `Ваш бал: ${totalScore}\/10`;
 }
 
 const badEnd = () => {
