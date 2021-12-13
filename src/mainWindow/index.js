@@ -20,7 +20,7 @@ const showStats = () => {
   console.log(users[userIndex].tasks[taskIndex]);
   let totalScore = 0;
   for (let i = 0; i < users[userIndex].tasks.length; i++){
-    totalScore += users[userIndex].tasks[i].score;
+    totalScore += users[userIndex].tasks[i].score === 1 ? 1 : 0;
   }
   document.getElementById('stats_attempts').innerText = `Количество попыткок: ${users[userIndex].tasks[taskIndex].attempts}`;
   document.getElementById('stats_score').innerText = `Ваш бал: ${totalScore}\/9`;
