@@ -176,7 +176,7 @@
     },
     {
         "title": "Тест № 9",
-        "task": "<p>Найдите рандомизированое решение с помощью Минимаксного критерия.</p> <p>Матрица потерь</p> <div class='container_table-img'> <table class='loseMatrix'> <tr> <td>2</td> <td>5</td> </tr> <tr> <td>4</td> <td>2</td> </tr> <tr> <td>3</td> <td>6</td> </tr> <tr> <td>7</td> <td>0</td> </tr> <tr> <td>1</td> <td>3</td> </tr> </table> <img src='../imgs/task8and9.png' width='500' height='350'> </div>",
+        "task": "<p>Найдите рандомизированое решение с помощью Минимаксного критерия.</p> <p>Матрица потерь</p> <div class='container_table-img'> <table class='loseMatrix'> <tr> <td>2</td> <td>5</td> </tr> <tr> <td>4</td> <td>2</td> </tr> <tr> <td>3</td> <td>6</td> </tr> <tr> <td>7</td> <td>0</td> </tr> <tr> <td>1</td> <td>3</td> </tr> </table> <img src='../imgs/task8and9.png' width='500' height='300'> </div>",
         "taskType": 1,
         "questions": [
             {
@@ -211,7 +211,7 @@
     },
     {
         "title": "Тест № 10",
-        "task": "<p>Найдите рандомизированое решение с помощью критерия Неймана-Пирсона. <br /> L<sub>порог.</sub> = 3</p> <p>Матрица потерь</p> <div class='container_table-img'> <table class='loseMatrix'> <tr> <td>2</td> <td>5</td> </tr> <tr> <td>4</td> <td>2</td> </tr> <tr> <td>3</td> <td>6</td> </tr> <tr> <td>7</td> <td>0</td> </tr> <tr> <td>1</td> <td>3</td> </tr> </table> <img src='../imgs/task8and9.png' width='500' height='350'> </div>",
+        "task": "<p>Найдите рандомизированое решение с помощью критерия Неймана-Пирсона. <br /> L<sub>порог.</sub> = 3</p> <p>Матрица потерь</p> <div class='container_table-img'> <table class='loseMatrix'> <tr> <td>2</td> <td>5</td> </tr> <tr> <td>4</td> <td>2</td> </tr> <tr> <td>3</td> <td>6</td> </tr> <tr> <td>7</td> <td>0</td> </tr> <tr> <td>1</td> <td>3</td> </tr> </table> <img src='../imgs/task8and9.png' width='500' height='300'> </div>",
         "taskType": 1,
         "questions": [
             {
