@@ -17,7 +17,7 @@ function createWindow() {
   mainWindow.setResizable(false);
   mainWindow.setMenu(null);
   mainWindow.loadFile('src/mainWindow/index.html');
-  // mainWindow.webContents.openDevTools();
+  mainWindow.webContents.openDevTools();
 
   let login = new BrowserWindow({
     show: true,
@@ -36,8 +36,7 @@ function createWindow() {
   login.loadFile('src/login/index.html');
   // login.webContents.openDevTools();
   login.on('close', (e) => {
-    e.preventDefault();
-    login.hide();
+    mainWindow.close();
   });
 
   ipcMain.on('successful login', (e, index) => {

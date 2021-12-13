@@ -144,6 +144,38 @@
     },
     {
         "title": "Тест № 8",
+        "task": "<p>Выберите НЕВЕРНЫЕ суждение по данному вопросу.</p>",
+        "taskType": 3,
+        "questions": [
+            {
+                "question": "Задачи принятия решений в рандомизированых решениях по критерию Неймана-Пирсона может:",
+                "answers": [
+                    {
+                        "answer": "Может иметь решение в вершине платежного множества",
+                        "right": false
+                    },
+                    {
+                        "answer": "Может иметь решение на прямой плятёжного множества",
+                        "right": false
+                    },
+                    {
+                        "answer": "Может иметь не иметь решения",
+                        "right": false
+                    },
+                    {
+                        "answer": "Может иметь решение внутри платежного множества",
+                        "right": true
+                    }
+                ]
+            }
+        ],
+        "answers": {
+            "right": "<p>Ваш ответ верный!</p>",
+            "wrong": "<p>Ваш ответ неверный!<p>"
+        }
+    },
+    {
+        "title": "Тест № 9",
         "task": "<p>Найдите рандомизированое решение с помощью Минимаксного критерия.</p> <p>Матрица потерь</p> <div class='container_table-img'> <table class='loseMatrix'> <tr> <td>2</td> <td>5</td> </tr> <tr> <td>4</td> <td>2</td> </tr> <tr> <td>3</td> <td>6</td> </tr> <tr> <td>7</td> <td>0</td> </tr> <tr> <td>1</td> <td>3</td> </tr> </table> <img src='../imgs/task8and9.png' width='500' height='350'> </div>",
         "taskType": 1,
         "questions": [
@@ -178,7 +210,7 @@
         }
     },
     {
-        "title": "Тест № 9",
+        "title": "Тест № 10",
         "task": "<p>Найдите рандомизированое решение с помощью критерия Неймана-Пирсона.</p> <p>Матрица потерь</p> <div class='container_table-img'> <table class='loseMatrix'> <tr> <td>2</td> <td>5</td> </tr> <tr> <td>4</td> <td>2</td> </tr> <tr> <td>3</td> <td>6</td> </tr> <tr> <td>7</td> <td>0</td> </tr> <tr> <td>1</td> <td>3</td> </tr> </table> <img src='../imgs/task8and9.png' width='500' height='350'> </div>",
         "taskType": 1,
         "questions": [

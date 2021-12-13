@@ -27,7 +27,8 @@ const showStats = () => {
 }
 
 const badEnd = () => {
-  users[userIndex].tasks[taskIndex].attempts -= 1;
+  users[userIndex].tasks[taskIndex].attempts--;
+  users[userIndex].tasks[taskIndex].score = -1;
   document.getElementById(`checkbtn${taskIndex}div`).style.display = 'none';
   document.getElementById(`taskBody${taskIndex}`).innerHTML = tasksText[taskIndex].answers.wrong;
   fs.writeFile(filePathUsers, JSON.stringify(users, null, 2), function (err) {
@@ -69,16 +70,53 @@ const startTask = () => {
   if (tasksText[taskIndex].title === 'Тест № 6') {
     taskBody += `
       <p>${tasksText[taskIndex].questions[0].question}</p>
-      <input type="checkbox" id="input-answer" name="answer" />
-      <label for="answer">Да</label>
+      <div>
+        <input type="checkbox" class="input-answer" name="answerYes" />
+        <label for="answerYes">Да</label>
+      </div>
+      <div>
+        <input type="checkbox" class="input-answer" name="answerNo" />
+        <label for="answerNo">Нет</label>
+      </div>
       `;
     document.getElementById(`taskBody${taskIndex}`).innerHTML = taskBody;
+    myDocument.getElementsByClassName(`input-answer`)[0].addEventListener('click', () => {
+      myDocument.getElementsByClassName(`input-answer`)[1].checked = false;
+    });
+    myDocument.getElementsByClassName(`input-answer`)[1].addEventListener('click', () => {
+      myDocument.getElementsByClassName(`input-answer`)[0].checked = false;
+    });
     myDocument.getElementById(`checkbtn${taskIndex}`).addEventListener('click', () => {
-      if(myDocument.getElementById('input-answer').checked){
+      if (myDocument.getElementsByClassName('input-answer')[0].checked){
         goodEnd();
-      } else {
-        badEnd;
+      } else if (myDocument.getElementsByClassName('input-answer')[1].checked) {
+        badEnd();
       }
+    });
+  }
+  else if (tasksText[taskIndex].taskType === 3) {
+    taskBody += `
+      <p>${tasksText[taskIndex].questions[0].question}</p>
+      <div style="display: flex; flex-direction: column">
+      `;
+    for (let i = 0; i < tasksText[taskIndex].questions[0].answers.length; i++) {
+      taskBody += `
+      <div>
+        <input type="checkbox" class="input-answer" name="answer${i}" />
+        <label for="answer${i}">${tasksText[taskIndex].questions[0].answers[i].answer}</label>
+      </div>
+      `;
+    }
+    taskBody += `</div>`;
+    document.getElementById(`taskBody${taskIndex}`).innerHTML = taskBody;
+    myDocument.getElementById(`checkbtn${taskIndex}`).addEventListener('click', () => {
+      for (let i = 0; i < tasksText[taskIndex].questions[0].answers.length; i++) {
+        if(myDocument.getElementsByClassName('input-answer')[i].checked !== tasksText[taskIndex].questions[0].answers[i].right){
+          badEnd();
+          return null;
+        }
+      }
+      goodEnd();
     });
   }
   else if(tasksText[taskIndex].taskType === 1) {
@@ -160,6 +198,34 @@ const startTask = () => {
   // myDocument.getElementById(`taskBody${taskIndex}`).innerHTML = taskBody;
 }
 
+const createShowSudents = () => {
+  document.getElementById('stats-container').style.display = 'none';
+  document.getElementById('chooseTheme').innerHTML = '';
+  users.forEach(({name}) => {
+    document.getElementById('chooseTheme').innerHTML += `<button class="choose-btn" id="${name}">${name}</button>`;
+  });
+  users.forEach(({name, tasks}, index) => {
+    document.getElementById(name).addEventListener('click', () => {
+      let showStatsOfStudent = `<div class="show-stats_container"> <h2 style="color: rgb(50, 54, 184);"> ${name} </h2> <table>`;
+      for (let i = 0; i < users[0].tasks.length; i++) {
+        showStatsOfStudent += `<tr style="height: 24px;"> <th colspan="2">${tasksText[i].title}</th> </tr>`;
+        showStatsOfStudent += `<tr style="font-weight: normal"> <td>Количество попыток:</td> <td>${tasks[i].attempts}</td> </tr>`;
+        showStatsOfStudent += `<tr style="font-weight: normal"> <td>Результат теста:</td> <td style="color: ${tasks[i].score === 1 ? "green" : (tasks[i].score === -1 && "red")}">${tasks[i].score === 1 ? "Пройдено" : (tasks[i].score === 0 ? "Тест не проходился" : "Провалено")}</td> </tr>`;
+      }
+      showStatsOfStudent += '</table> </div>';
+      document.getElementById('showTheme').innerHTML = showStatsOfStudent;
+    })
+  });
+  let showStatsOfStudent = `<div class="show-stats_container"> <h2 style="color: rgb(50, 54, 184);"> ${users[0].name} </h2> <table>`;
+  for (let i = 0; i < users[0].tasks.length; i++) {
+    showStatsOfStudent += `<tr style="margin-top: 10px"> <th colspan="2">${tasksText[i].title}</th> </tr>`;
+    showStatsOfStudent += `<tr style="font-weight: normal"> <td>Количество попыток:</td> <td>${users[0].tasks[i].attempts}</td> </tr>`;
+    showStatsOfStudent += `<tr style="font-weight: normal"> <td>Результат теста:</td> <td style="color: ${users[0].tasks[i].score === 1 ? "green" : (users[0].tasks[i].score === -1 && "red")}">${users[0].tasks[i].score === 1 ? "Пройдено" : (users[0].tasks[i].score === 0 ? "Тест не проходился" : "Провалено")}</td> </tr>`;
+  }
+  showStatsOfStudent += '</table> </div>';
+  document.getElementById('showTheme').innerHTML = showStatsOfStudent;
+}
+
 const createThemes = () => {
   document.getElementById('stats-container').style.display = 'none';
   document.getElementById('chooseTheme').innerHTML = '';
@@ -230,11 +296,12 @@ const createTasks = () => {
 
 document.getElementById('theory-btn').addEventListener('click', createThemes);
 document.getElementById('task-btn').addEventListener('click', createTasks);
+const showStudents = document.getElementById('students-btn');
+showStudents.addEventListener('click', createShowSudents);
 
 ipcRenderer.on('successful login', (e, userNumber) => {
   users = JSON.parse(fs.readFileSync(filePathUsers, { encoding: 'utf-8' }));
-  
   userIndex = userNumber;
-  console.log('index: ', userIndex);
+  if(users[userIndex].amITeacher) showStudents.style.display = 'block';
   createThemes();
 });

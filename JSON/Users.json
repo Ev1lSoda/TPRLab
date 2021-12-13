@@ -33,8 +33,12 @@
         "score": 0
       },
       {
-        "attempts": 1,
-        "score": 1
+        "attempts": 2,
+        "score": 0
+      },
+      {
+        "attempts": 2,
+        "score": 0
       },
       {
         "attempts": 2,
@@ -69,20 +73,24 @@
         "score": 1
       },
       {
-        "attempts": 98,
-        "score": 1
+        "attempts": 91,
+        "score": -1
       },
       {
         "attempts": 199,
         "score": 0
       },
       {
-        "attempts": 198,
+        "attempts": 195,
         "score": 1
       },
       {
-        "attempts": 196,
-        "score": 1
+        "attempts": 195,
+        "score": -1
+      },
+      {
+        "attempts": 195,
+        "score": -1
       }
     ]
   },
@@ -114,6 +122,10 @@
       },
       {
         "attempts": 1,
+        "score": 0
+      },
+      {
+        "attempts": 2,
         "score": 0
       },
       {

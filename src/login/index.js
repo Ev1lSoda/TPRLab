@@ -38,6 +38,10 @@ const tasks = [
   {
     attempts: 2,
     score: 0
+  },
+  {
+    attempts: 2,
+    score: 0
   }
 ];
 
