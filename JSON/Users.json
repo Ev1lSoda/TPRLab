@@ -53,11 +53,7 @@
     "group": "PA-18-1",
     "tasks": [
       {
-        "attempts": 99,
-        "score": 0
-      },
-      {
-        "attempts": 99,
+        "attempts": 98,
         "score": 1
       },
       {
@@ -69,7 +65,11 @@
         "score": 1
       },
       {
-        "attempts": 199,
+        "attempts": 97,
+        "score": 1
+      },
+      {
+        "attempts": 197,
         "score": 1
       },
       {
@@ -81,16 +81,16 @@
         "score": 0
       },
       {
-        "attempts": 195,
+        "attempts": 192,
         "score": 1
       },
       {
-        "attempts": 195,
-        "score": -1
+        "attempts": 194,
+        "score": 1
       },
       {
-        "attempts": 195,
-        "score": -1
+        "attempts": 194,
+        "score": 1
       }
     ]
   },
@@ -99,6 +99,147 @@
     "password": "Pass",
     "amITeacher": false,
     "group": "PA 18 1",
+    "tasks": [
+      {
+        "attempts": 1,
+        "score": 0
+      },
+      {
+        "attempts": 1,
+        "score": 0
+      },
+      {
+        "attempts": 1,
+        "score": 0
+      },
+      {
+        "attempts": 1,
+        "score": 0
+      },
+      {
+        "attempts": 2,
+        "score": 0
+      },
+      {
+        "attempts": 1,
+        "score": 0
+      },
+      {
+        "attempts": 2,
+        "score": 0
+      },
+      {
+        "attempts": 2,
+        "score": 0
+      },
+      {
+        "attempts": 2,
+        "score": 0
+      },
+      {
+        "attempts": 2,
+        "score": 0
+      }
+    ]
+  },
+  {
+    "name": "Turchina Valentina",
+    "password": "pass",
+    "amITeacher": true,
+    "tasks": [
+      {
+        "attempts": 1,
+        "score": 0
+      },
+      {
+        "attempts": 1,
+        "score": 0
+      },
+      {
+        "attempts": 1,
+        "score": 0
+      },
+      {
+        "attempts": 1,
+        "score": 0
+      },
+      {
+        "attempts": 2,
+        "score": 0
+      },
+      {
+        "attempts": 1,
+        "score": 0
+      },
+      {
+        "attempts": 2,
+        "score": 0
+      },
+      {
+        "attempts": 2,
+        "score": 0
+      },
+      {
+        "attempts": 2,
+        "score": 0
+      },
+      {
+        "attempts": 2,
+        "score": 0
+      }
+    ]
+  },
+  {
+    "name": "Pavel1",
+    "password": "pass",
+    "amITeacher": true,
+    "tasks": [
+      {
+        "attempts": 1,
+        "score": 0
+      },
+      {
+        "attempts": 1,
+        "score": 0
+      },
+      {
+        "attempts": 1,
+        "score": 0
+      },
+      {
+        "attempts": 1,
+        "score": 0
+      },
+      {
+        "attempts": 2,
+        "score": 0
+      },
+      {
+        "attempts": 1,
+        "score": 0
+      },
+      {
+        "attempts": 2,
+        "score": 0
+      },
+      {
+        "attempts": 2,
+        "score": 0
+      },
+      {
+        "attempts": 2,
+        "score": 0
+      },
+      {
+        "attempts": 2,
+        "score": 0
+      }
+    ]
+  },
+  {
+    "name": "Turchina",
+    "password": "pass",
+    "amITeacher": true,
     "tasks": [
       {
         "attempts": 1,
