@@ -17,7 +17,7 @@ function createWindow() {
   mainWindow.setResizable(false);
   mainWindow.setMenu(null);
   mainWindow.loadFile('src/mainWindow/index.html');
-  mainWindow.webContents.openDevTools();
+  ///mainWindow.webContents.openDevTools();
 
   let login = new BrowserWindow({
     show: true,
